@@ -131,10 +131,10 @@
       </p4>
       <div>
         <input type="radio" id="Yes" name="instrumental" value="instrumental" class="checkboxcontainer"
-          onClick="instrfunction(value)">
+          onClick="instrfunction(value, id)">
         <label for="Yes">Yes</label>
 
-        <input type="radio" id="No" name="instrumental" class="checkboxcontainer" onClick="instrfunction(value)">
+        <input type="radio" id="No" name="instrumental" class="checkboxcontainer" onClick="instrfunction(value, id)">
         <label for="No">No</label>
       </div>
       <br>
@@ -209,8 +209,11 @@
         function currfunction(value) {
           sessionStorage.setItem("curr", value);
         }
-        function instrfunction(value) {
+        function instrfunction(value, id) {
           sessionStorage.setItem("instrumental", value);
+          if (id == "No") {
+            alert("Are you sure?! They're pretty good!");
+          }
         }
 
         var total = 0;
