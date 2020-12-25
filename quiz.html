@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    p2,
+    p3,
+    p4,
+    p5 {
+      line-height: 1.5;
+    }
+
+    .button {
+      background-color: rgb(255, 0, 255);
+      border: none;
+      color: white;
+      padding: 5px 20px;
+      text-align: center;
+      font-size: 30px;
+      font-family: Monaco;
+      border-radius: 16px;
+      margin-bottom: 7px;
+    }
+
+    .button:hover {
+      background-color: rgb(255, 230, 255);
+      box-shadow: 5px 5px 5px rgb(230, 0, 230);
+    }
+
+    .button:focus,
+    .button::after {
+      background-color: rgb(255, 230, 255);
+      box-shadow: 5px 5px 5px rgb(230, 0, 230);
+    }
+
+    input.checkboxcontainer {
+      display: none;
+    }
+
+    input.checkboxcontainer+label {
+      background-color: rgb(255, 179, 255);
+      border: none;
+      color: white;
+      padding: 5px 20px 5px 20px;
+      text-align: center;
+      font-size: 30px;
+      font-family: Monaco;
+      border-radius: 16px;
+      display: inline-flex;
+      /* align-items items in column */
+      flex-direction: column;
+      /* center items horizontally */
+      align-items: center;
+      /* center items vertically */
+      justify-content: center;
+      margin: 4px 4px;
+    }
+
+    input.checkboxcontainer:not(:checked)+label:hover {
+      background-color: rgb(255, 230, 255);
+      box-shadow: 5px 5px 5px rgb(255, 0, 255);
+    }
+
+    input.checkboxcontainer+label:active,
+    input.checkboxcontainer:checked+label {
+      background-color: rgb(255, 230, 255);
+      box-shadow: 5px 5px 5px rgb(255, 0, 255);
+    }
+  </style>
+  <title>Quiz Page</title>
+</head>
+
+<body style="background-color: rgb(40, 40, 62);">
+  <center>
+    <form target="_self" autocomplete="off">
+
+      <p1 style="font-size:30px;font-family:Monaco;color:white"><br>What is your current mood?<br></p1>
+      <div class="btn-group">
+
+        <input type="radio" id="Happy" name="mood" value="happy" class="checkboxcontainer"
+          onClick="moodfunction(value)">
+        <label for="Happy">Happy</label>
+
+        <input type="radio" id="Sad" name="mood" value="sad" class="checkboxcontainer" onClick="moodfunction(value)">
+        <label for="Sad">Sad</label>
+
+        <input type="radio" id="Lit" name="mood" value="lit" class="checkboxcontainer" onClick="moodfunction(value)">
+        <label for="Lit">Lit</label>
+      </div>
+      <br>
+
+      <p2 style="font-size:30px;font-family:Monaco;color:white">What kind of beats do you want to listen to?<br></p2>
+      <div>
+        <input type="radio" id="Energetic" name="beat" value="energetic" class="checkboxcontainer"
+          onClick="beatfunction(value)">
+        <label for="Energetic">Energetic</label>
+
+        <input type="radio" id="Loud" name="beat" value="loud" class="checkboxcontainer" onClick="beatfunction(value)">
+        <label for="Loud">Loud</label>
+
+        <input type="radio" id="Soft" name="beat" value="soft" class="checkboxcontainer" onClick="beatfunction(value)">
+        <label for="Soft">Soft</label>
+      </div>
+      <br>
+
+      <p3 style="font-size:30px;font-family:Monaco;color:white">What are you doing right now?<br></p3>
+      <div>
+        <input type="radio" id="Homework/Studying" name="curr" value="hmk" class="checkboxcontainer"
+          onClick="currfunction(value)">
+        <label for="Homework/Studying">Homework/Studying</label>
+
+        <input type="radio" id="Exercising" name="curr" value="work" class="checkboxcontainer"
+          onClick="currfunction(value)">
+        <label for="Exercising">Exercising</label>
+
+        <input type="radio" id="Partying" name="curr" value="partying" class="checkboxcontainer"
+          onClick="currfunction(value)">
+        <label for="Partying">Partying</label>
+
+        <input type="radio" id="Chilling" name="curr" value="chilling" class="checkboxcontainer"
+          onClick="currfunction(value)">
+        <label for="Chilling">Chilling</label>
+
+        <input type="radio" id="Taking this quiz!" name="curr" value="joke" class="checkboxcontainer"
+          onClick="currfunction(value)">
+        <label for="Taking this quiz!">Taking this quiz!</label>
+      </div>
+      <br>
+
+      <p4 style="font-size:30px;font-family:Monaco;color:white">Do you want instrumental songs (no lyrics) added?<br>
+      </p4>
+      <div>
+        <input type="radio" id="Yes" name="instrumental" value="instrumental" class="checkboxcontainer"
+          onClick="instrfunction(value)">
+        <label for="Yes">Yes</label>
+
+        <input type="radio" id="No" name="instrumental" class="checkboxcontainer" onClick="instrfunction(value)">
+        <label for="No">No</label>
+      </div>
+      <br>
+
+      <p5 style="font-size:30px;font-family:Monaco;color:white">Please select up to three edm artists you want to
+        hear:<br>
+      </p5>
+      <!--https://stackoverflow.com/questions/30100978/how-to-make-a-check-button-hidden-checkbox-with-label-as-a-button-css-only-->
+      <input type="checkbox" id="Illenium" value="Illenium" name="artist" class="checkboxcontainer"
+        onClick="onlythree(0, value)">
+      <label for="Illenium">Illenium</label>
+
+      <input type="checkbox" id="Gryffin" value="Gryffin" name="artist" class="checkboxcontainer"
+        onClick="onlythree(1, value)">
+      <label for="Gryffin">Gryffin</label>
+
+      <input type="checkbox" id="Seven Lions" value="Seven Lions" name="artist" class="checkboxcontainer"
+        onClick="onlythree(2, value)">
+      <label for="Seven Lions">Seven Lions</label>
+
+      <input type="checkbox" id="Dabin" value="Dabin" name="artist" class="checkboxcontainer"
+        onClick="onlythree(3, value)">
+      <label for="Dabin">Dabin</label>
+
+      <input type="checkbox" id="Said the Sky" value="Said the Sky" name="artist" class="checkboxcontainer"
+        onClick="onlythree(4, value)">
+      <label for="Said the Sky">Said the Sky</label>
+
+      <input type="checkbox" id="Slander" value="Slander" name="artist" class="checkboxcontainer"
+        onClick="onlythree(5, value)">
+      <label for="Slander">Slander</label>
+
+      <input type="checkbox" id="Excision" value="Excision" name="artist" class="checkboxcontainer"
+        onClick="onlythree(6), value">
+      <label for="Excision">Excision</label>
+
+      <input type="checkbox" id="Zedd" value="Zedd" name="artist" class="checkboxcontainer"
+        onClick="onlythree(7, value)">
+      <label for="Zedd">Zedd</label>
+
+      <input type="checkbox" id="Tritonal" value="Tritonal" name="artist" class="checkboxcontainer"
+        onClick="onlythree(8, value)">
+      <label for="Tritonal">Tritonal</label>
+
+      <input type="checkbox" id="Elephante" value="Elephante" name="artist" class="checkboxcontainer"
+        onClick="onlythree(9, value)">
+      <label for="Elephante">Elephante</label>
+
+      <input type="checkbox" id="Armnhmr" value="Armnhmr" name="artist" class="checkboxcontainer"
+        onClick="onlythree(10, value)">
+      <label for="Armnhmr">Armnhmr</label>
+
+      <input type="checkbox" id="unknown" name="artist[]" class="checkboxcontainer">
+      <label for="unknown">I don't know who these people are!</label>
+      <br>
+      <br>
+
+      <script type="text/javascript">
+        // Removes previous session data in order for users to go back
+        // and reselect new categories
+        sessionStorage.removeItem("mood");
+        sessionStorage.removeItem("beat");
+        sessionStorage.removeItem("curr");
+        sessionStorage.removeItem("instrumental");
+        sessionStorage.removeItem("artist");
+        function moodfunction(value) {
+          sessionStorage.setItem("mood", value);
+        }
+        function beatfunction(value) {
+          sessionStorage.setItem("beat", value);
+        }
+        function currfunction(value) {
+          sessionStorage.setItem("curr", value);
+        }
+        function instrfunction(value) {
+          sessionStorage.setItem("instrumental", value);
+        }
+
+        var total = 0;
+        // only three buttons should remain clicked (can click on and off)
+        function onlythree(i, value) {
+          var input = document.getElementsByName('artist');
+          if (input[i].checked == true) {
+            total = total + 1;
+            if (total > 3) {
+              input[i].checked = false;
+              total = total - 1;
+            }
+          }
+          else if (input[i].checked == false) {
+            total = total - 1;
+          }
+        }
+        // This function is called when submit is clicked in order to 
+        // process the exact (3) artists that were selected
+        function testing() {
+          // create an array to send to the form
+          var array = [];
+          var checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
+
+          for (var i = 0; i < checkboxes.length; i++) {
+            array.push(checkboxes[i].value);
+            sessionStorage.setItem('final', JSON.stringify(array));
+          }
+        }
+      </script>
+      <input type="submit" value="Finish" class="button" formaction="output.html" onClick="testing()">
+      <br>
+    </form>
+
+  </center>
+</body>
+
+</html>

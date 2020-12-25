@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .pinkbox {
+            border: 3px outset rgb(255, 0, 255);
+            background-color: rgb(255, 179, 255);
+            width: 60%;
+            height: 90%;
+            border-radius: 16px;
+            text-align: center;
+            line-height: 1.5;
+        }
+    </style>
+    <title>Playlist Generator</title>
+</head>
+
+<body style="background-color: rgb(40, 40, 62);">
+
+    <center>
+        <h1 style="font-family:Monaco;color:white;font-size:40px">This is your customized playlist!<br>
+            <p1 style="font-family:Monaco;color:white;font-size:25px">- refresh for new randomized playlist -<br>
+            </p1>
+        </h1>
+        <div class='pinkbox'>
+            <h2 style="font-family:Monaco;color:white" id="print">
+                <script type="text/javascript">
+                    var finalplaylist = new Array();
+                    var moodarray = new Array();
+                    var beatarray = new Array();
+                    var currarray = new Array();
+                    var instrumentalarray = new Array();
+                    var artistarray = new Array();
+                    var valone = sessionStorage.getItem("mood");
+                    var valtwo = sessionStorage.getItem("beat");
+                    var valthree = sessionStorage.getItem("curr");
+                    var valfour = sessionStorage.getItem("instrumental");
+                    var valfive = JSON.parse(sessionStorage.getItem('final'));
+                    if (valone == "happy") {
+                        moodarray.push(
+                            "GUD VIBRATIONS - Nghtmre/Slander",
+                            "Just For A Moment - Gryffin",
+                            "Body Back - Gryffin",
+                            "Just Us - Said the Sky",
+                            "Show & Tell - Said the Sky",
+                            "Everyday, Everyday - Manila Killa",
+                            "Better Not - Louis The Child",
+                            "Miss Me More - 3LAU",
+                            "Love You Now - Cash Cash"
+                        );
+                        shuffle(moodarray);
+                        moodarray.splice(4, moodarray.length);
+                        finalplaylist = moodarray.concat(finalplaylist);
+                    }
+                    if (valone == "sad") {
+                        moodarray.push(
+                            "Love Is Gone - Slander",
+                            "Potions - Slander",
+                            "Hard To Say Goodbye - Ekali/Illenium",
+                            "Back To U - Slander/William Black",
+                            "Part-Time Lover - Dabin",
+                            "Cold as Stone - Kaskade",
+                            "Holding on - Dabin",
+                            "Sad Songs - Illenium/Said The Sky",
+                            "Chameleon - Mako/Elephante",
+                            "Good Things Fall Apart - Illenium"
+                        );
+                        shuffle(moodarray);
+                        moodarray.splice(4, moodarray.length);
+                        finalplaylist = moodarray.concat(finalplaylist);
+                    }
+                    if (valone == "lit") {
+                        moodarray.push(
+                            "Island - Seven Lions",
+                            "You Don't Even Know Me - Slander",
+                            "Next Life - Adventure Club"
+                        );
+                        shuffle(moodarray);
+                        moodarray.splice(3, moodarray.length);
+                        finalplaylist = moodarray.concat(finalplaylist);
+                    }
+                    if (valtwo == "energetic") {
+                        beatarray.push(
+                            "Home - Excision",
+                            "Into My Heart - yetep",
+                            "Away - Mitis",
+                            "Nobody Compares To You - Gryffin",
+                            "Sunburn - DROELOE",
+                            "Riptide - Trivecta",
+                            "Wrong To Let You Go - Man Cub",
+                            "All I'm After - Jameo"
+                        );
+                        shuffle(beatarray);
+                        beatarray.splice(4, beatarray.length);
+                        finalplaylist = beatarray.concat(finalplaylist);
+                    }
+                    if (valtwo == "loud") {
+                        beatarray.push(
+                            "Gold - Excision",
+                            "Frontlines- Zeds Dead, NGHTMRE",
+                            "Nothing To Hide - Boombox Cartel"
+                        );
+                        shuffle(beatarray);
+                        beatarray.splice(2, beatarray.length);
+                        finalplaylist = beatarray.concat(finalplaylist);
+                    }
+                    if (valtwo == "soft") {
+                        beatarray.push(
+                            "Revive - Lione",
+                            "Million Days - Sabai/Hoang",
+                            "Cold Skin (MiTiS Remix) - Seven Lions",
+                            "Touch - 3LAU",
+                            "Still Sleeping - Jai Wolf",
+                            "Moments - Mitis",
+                            "Take Me - William Black",
+                            "When You're Lonely - Hoang",
+                            "All I Got - Said the Sky",
+                            "Glimmer - Lione"
+                        );
+                        shuffle(beatarray);
+                        beatarray.splice(4, beatarray.length);
+                        finalplaylist = beatarray.concat(finalplaylist);
+                    }
+                    if (valthree == "hmk") {
+                        currarray.push(
+                            "Where We Are - Bear Grillz/Adventure Club",
+                            "Otherside - Elephante",
+                            "Oxygen - Excision",
+                            "Breathe Without - Nurko",
+                            "Sunsets - Nurko",
+                            "Leaving - Ekali",
+                            "Petals from a Rose - yetep",
+                            "Don't Say - Hoang",
+                            "Wait - Mitis",
+                            "Dreamin' - Seven Lions",
+                            "Gone - Hoang",
+                            "Run Back to You - Hoang",
+                            "Crashing - Illenium"
+                        );
+                        shuffle(currarray);
+                        currarray.splice(4, currarray.length);
+                        finalplaylist = currarray.concat(finalplaylist);
+                    }
+                    if (valthree == "work") {
+                        currarray.push(
+                            "Blame - Zed's Dead",
+                            "Horizon - Seven Lions",
+                            "Nothing Left - Wooli/William Black",
+                            "Constellation - Far Out",
+                            "On My Own - Far Out",
+                            "Lost with You - Far Out",
+                            "Break Me - Trivecta",
+                            "Be Without You - KEPIK",
+                            "Rescue - HGHLND",
+                            "I Wanna Know - RL Grime",
+                            "Feels Right - Crystal Skies",
+                            "Hold On - Illenium",
+                            "Here With Me - Armnhmr",
+                            "Already Know - Adventure Club",
+                            "Never Change - Crystal Skies"
+                        );
+                        shuffle(currarray);
+                        currarray.splice(4, currarray.length);
+                        finalplaylist = currarray.concat(finalplaylist);
+                    }
+                    if (valthree == "partying") {
+                        currarray.push(
+                            "Save Me - Armnhmr",
+                            "Another Me - Seven Lions/Excision"
+                        );
+                        shuffle(currarray);
+                        currarray.splice(2, currarray.length);
+                        finalplaylist = currarray.concat(finalplaylist);
+                    }
+                    if (valthree == "chilling") {
+                        currarray.push(
+                            "Almost Back - Kaskade",
+                            "Better WIth You - 3LAU",
+                            "Better Apart - Jai Wolf",
+                            "For You - Said the Sky",
+                            "Kids - Lione",
+                            "Another Way - Seven Lions",
+                            "Demons - Bear Grillz",
+                            "Into You - Matisse & Sadko",
+                            "Shelter - Porter Robinson",
+                            "One More Night - Crystal Skies",
+                            "Something Comforting - Porter Robinson",
+                            "Leave It All - Armnhmr"
+                        );
+                        shuffle(currarray);
+                        currarray.splice(4, currarray.length);
+                        finalplaylist = currarray.concat(finalplaylist);
+                    }
+                    if (valfour == "instrumental") {
+                        instrumentalarray.push(
+                            "Stargazing - Slushii",
+                            "You - Miruku",
+                            "A World Away - Inukshuk",
+                            "Darling - Said the Sky"
+                        );
+                        shuffle(instrumentalarray);
+                        instrumentalarray.splice(3, instrumentalarray.length);
+                        finalplaylist = instrumentalarray.concat(finalplaylist);
+                    }
+                    // passed in array of selected artists; iterate and assign
+                    for (var i = 0; i < valfive.length; i++) {
+                        if (valfive[i] == "Illenium") {
+                            artistarray.push(
+                                "Fractures - Illenium",
+                                "Crawl Outta Love - Illenium",
+                                "Take You Down - Illenium",
+                                "Free Fall - Illenium",
+                                "Where'd U Go - Illenium"
+                            );
+                            shuffle(artistarray);
+                            artistarray.splice(4, artistarray.length);
+                            finalplaylist = artistarray.concat(finalplaylist);
+                            // must clear the artistarray or repeats will show!
+                            artistarray = [];
+                        }
+                        else if (valfive[i] == "Gryffin") {
+                            artistarray.push(
+                                "Bye Bye - Gryffin",
+                                "All You Need To Know - Gryffin/Slander",
+                                "Feel Good - Gryffin ",
+                                "Need Your Love - Gryffin",
+                                "Cry - Gryffin"
+                            );
+                            shuffle(artistarray);
+                            artistarray.splice(4, artistarray.length);
+                            finalplaylist = artistarray.concat(finalplaylist);
+                            artistarray = [];
+                        }
+                        else if (valfive[i] == "Seven Lions") {
+                            artistarray.push(
+                                "First Time - Seven Lions",
+                                "Rush Over Me - Seven Lions",
+                                "Calling You Home - Seven Lions",
+                                "Only Now - Seven Lions",
+                                "Ocean - Seven Lions",
+                                "Worlds Apart - Seven Lions"
+                            );
+                            shuffle(artistarray);
+                            artistarray.splice(4, artistarray.length);
+                            finalplaylist = artistarray.concat(finalplaylist);
+                            artistarray = [];
+                        }
+                        else if (valfive[i] == "Dabin") {
+                            artistarray.push(
+                                "Bloom - Dabin",
+                                "Alive (Trivecta Remix) - Dabin",
+                                "Lights - Dabin",
+                                "Rings & Roses - Dabin",
+                                "Hold - Dabin",
+                                "In Flames - Dabin"
+                            );
+                            shuffle(artistarray);
+                            artistarray.splice(4, artistarray.length);
+                            finalplaylist = artistarray.concat(finalplaylist);
+                            artistarray = [];
+                        }
+                        else if (valfive[i] == "Said the Sky") {
+                            artistarray.push(
+                                "Superstar - Said the Sky",
+                                "Affection - Said the Sky",
+                                "Atoms (STS Remix)- RL Grime/Said the Sky",
+                                "Never Gone - Said the Sky",
+                                "Beautiful - Said the Sky",
+                                "Erase Me- Said the Sky"
+                            );
+                            shuffle(artistarray);
+                            artistarray.splice(4, artistarray.length);
+                            finalplaylist = artistarray.concat(finalplaylist);
+                            artistarray = [];
+                        }
+                        else if (valfive[i] == "Slander") {
+                            artistarray.push(
+                                "Superhuman - Slander",
+                                "Without You - Slander",
+                                "Better Than Heaven - Slander",
+                                "Love Again - Slander"
+                            );
+                            shuffle(artistarray);
+                            artistarray.splice(2, artistarray.length);
+                            finalplaylist = artistarray.concat(finalplaylist);
+                            artistarray = [];
+                        }
+                        else if (valfive[i] == "Excision") {
+                            artistarray.push(
+                                "Drowning - Excision",
+                                "Your Fault - Excision",
+                                "Vault - Excision"
+                            );
+                            shuffle(artistarray);
+                            artistarray.splice(1, artistarray.length);
+                            finalplaylist = artistarray.concat(finalplaylist);
+                            artistarray = [];
+                        }
+                        else if (valfive[i] == "Zedd") {
+                            artistarray.push(
+                                "Daisy - Zedd",
+                                "Happy Now - Zedd",
+                                "The Middle - Zedd",
+                                "Beautiful Now - Zedd"
+                            );
+                            shuffle(artistarray);
+                            artistarray.splice(2, artistarray.length);
+                            finalplaylist = artistarray.concat(finalplaylist);
+                            artistarray = [];
+                        }
+                        else if (valfive[i] == "Tritonal") {
+                            artistarray.push(
+                                "Just Like U - Tritonal",
+                                "When I'm With U - Tritonal",
+                                "Never Be The Same (Crystal Skies Remix) - Tritonal",
+                                "Out My Mind - Tritonal",
+                                "Just Like U - Tritonal",
+                                "Love U Right - Tritonal"
+                            );
+                            shuffle(artistarray);
+                            artistarray.splice(4, artistarray.length);
+                            finalplaylist = artistarray.concat(finalplaylist);
+                            artistarray = [];
+                        }
+                        else if (valfive[i] == "Elephante") {
+                            artistarray.push(
+                                "The In Between - Elephante",
+                                "Dynasty - Elephante",
+                                "Have It All - Elephante",
+                                "Glass Mansion - Elephante",
+                                "Smoke Filled Room (Elephante Remix) - Mako/Elephante",
+                                "All Over Again - Elephante"
+                            );
+                            shuffle(artistarray);
+                            artistarray.splice(4, artistarray.length);
+                            finalplaylist = artistarray.concat(finalplaylist);
+                            artistarray = [];
+                        }
+                        else if (valfive[i] == "Armnhmr") {
+                            artistarray.push(
+                                "WANT U - Armnhmr",
+                                "Oceans - Armnhmr",
+                                "Forever Young - Armnhmr",
+                                "Fallen (William Black Remix) - Armnhmr",
+                                "Let Light Out - Armnhmr",
+                                "I Don't Know You - Armnhmr",
+                                "I'll Be Fine - Armnhmr"
+                            );
+                            shuffle(artistarray);
+                            artistarray.splice(4, artistarray.length);
+                            finalplaylist = artistarray.concat(finalplaylist);
+                            artistarray = [];
+                        }
+                    }
+
+                    shuffle(finalplaylist);
+                    for (var i = 0; i < finalplaylist.length; i++) {
+                        document.getElementById("print").innerHTML += finalplaylist[i] + "<br>";
+                    }
+
+                    // Algorithm taken from the Fisher Yates Method
+                    function shuffle(arr) {
+                        var i, j, k;
+                        for (i = arr.length - 1; i > 0; i--) {
+                            j = Math.floor(Math.random() * i)
+                            k = arr[i]
+                            arr[i] = arr[j]
+                            arr[j] = k
+                        }
+                    }
+                </script>
+            </h2>
+        </div>
+    </center>
+
+</body>
+
+</html>
